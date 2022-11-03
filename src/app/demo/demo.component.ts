@@ -33,7 +33,7 @@ export class DemoComponent implements OnInit {
   validationMaxTime: Dayjs;
   placeholder: string = 'Choose a date...';
   displayDate: Dayjs | string;
-  dateTypes: { name: string, value: ECalendarValue }[] = [
+  dateTypes: {name: string; value: ECalendarValue}[] = [
     {
       name: 'Guess',
       value: null
@@ -94,8 +94,7 @@ export class DemoComponent implements OnInit {
   formGroup: UntypedFormGroup;
   isAtTop: boolean = true;
 
-  constructor(private readonly gaService: GaService) {
-  }
+  constructor(private readonly gaService: GaService) {}
 
   ngOnInit(): void {
     this.formGroup = this.buildForm();
@@ -168,16 +167,21 @@ export class DemoComponent implements OnInit {
     return new UntypedFormGroup({
       datePicker: new UntypedFormControl({value: this.date, disabled: this.disabled}, [
         this.required ? Validators.required : () => undefined,
-        (control) => {
-          return this.validationMinDate && this.config &&
-          dayjs(control.value, this.config.format || DemoComponent.getDefaultFormatByMode(this.pickerMode))
-            .isBefore(this.validationMinDate)
-            ? {minDate: 'minDate Invalid'} : undefined
+        control => {
+          return this.validationMinDate &&
+            this.config &&
+            dayjs(control.value, this.config.format || DemoComponent.getDefaultFormatByMode(this.pickerMode)).isBefore(
+              this.validationMinDate
+            )
+            ? {minDate: 'minDate Invalid'}
+            : undefined;
         },
-        control => this.validationMaxDate && this.config &&
-        dayjs(control.value, this.config.format || DemoComponent.getDefaultFormatByMode(this.pickerMode))
-          .isAfter(this.validationMaxDate)
-          ? {maxDate: 'maxDate Invalid'} : undefined
+        control =>
+          this.validationMaxDate &&
+          this.config &&
+          dayjs(control.value, this.config.format || DemoComponent.getDefaultFormatByMode(this.pickerMode)).isAfter(this.validationMaxDate)
+            ? {maxDate: 'maxDate Invalid'}
+            : undefined
       ])
     });
   }

@@ -20,4 +20,3 @@ export class DayDemoComponent extends DateComponent implements OnInit {
     this.control = this.buildForm();
   }
 }
-

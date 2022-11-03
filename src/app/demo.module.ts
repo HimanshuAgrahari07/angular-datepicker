@@ -27,71 +27,74 @@ import {TimeDirectiveDemoComponent} from './demo/date-pickers/time/time-directiv
     FormsModule,
     ReactiveFormsModule,
     DpDatePickerModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: DemoComponent,
-        children: [
-          {
-            path: '',
-            redirectTo: 'daytimePicker',
-            pathMatch: 'full'
-          },
-          {
-            path: 'daytimePicker',
-            component: DayTimeDemoComponent
-          },
-          {
-            path: 'daytimeInline',
-            component: DayTimeInlineDemoComponent
-          },
-          {
-            path: 'daytimeDirective',
-            component: DayTimeDirectiveDemoComponent
-          },
-          {
-            path: 'dayPicker',
-            component: DayDemoComponent
-          },
-          {
-            path: 'dayInline',
-            component: DayInlineDemoComponent
-          },
-          {
-            path: 'dayDirective',
-            component: DayDirectiveDemoComponent
-          },
-          {
-            path: 'monthPicker',
-            component: MonthDemoComponent
-          },
-          {
-            path: 'monthInline',
-            component: MonthInlineDemoComponent
-          },
-          {
-            path: 'monthDirective',
-            component: MonthDirectiveDemoComponent
-          },
-          {
-            path: 'timePicker',
-            component: TimeDemoComponent
-          },
-          {
-            path: 'timeInline',
-            component: TimeInlineDemoComponent
-          },
-          {
-            path: 'timeDirective',
-            component: TimeDirectiveDemoComponent
-          }
-        ]
-      },
-      {
-        path: '**',
-        redirectTo: ''
-      }
-    ], {relativeLinkResolution: 'legacy'})
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          component: DemoComponent,
+          children: [
+            {
+              path: '',
+              redirectTo: 'daytimePicker',
+              pathMatch: 'full'
+            },
+            {
+              path: 'daytimePicker',
+              component: DayTimeDemoComponent
+            },
+            {
+              path: 'daytimeInline',
+              component: DayTimeInlineDemoComponent
+            },
+            {
+              path: 'daytimeDirective',
+              component: DayTimeDirectiveDemoComponent
+            },
+            {
+              path: 'dayPicker',
+              component: DayDemoComponent
+            },
+            {
+              path: 'dayInline',
+              component: DayInlineDemoComponent
+            },
+            {
+              path: 'dayDirective',
+              component: DayDirectiveDemoComponent
+            },
+            {
+              path: 'monthPicker',
+              component: MonthDemoComponent
+            },
+            {
+              path: 'monthInline',
+              component: MonthInlineDemoComponent
+            },
+            {
+              path: 'monthDirective',
+              component: MonthDirectiveDemoComponent
+            },
+            {
+              path: 'timePicker',
+              component: TimeDemoComponent
+            },
+            {
+              path: 'timeInline',
+              component: TimeInlineDemoComponent
+            },
+            {
+              path: 'timeDirective',
+              component: TimeDirectiveDemoComponent
+            }
+          ]
+        },
+        {
+          path: '**',
+          redirectTo: ''
+        }
+      ],
+      {relativeLinkResolution: 'legacy'}
+    )
   ],
   declarations: [
     DemoRootComponent,
@@ -113,5 +116,4 @@ import {TimeDirectiveDemoComponent} from './demo/date-pickers/time/time-directiv
   providers: [GaService],
   bootstrap: [DemoRootComponent]
 })
-export class DemoModule {
-}
+export class DemoModule {}
